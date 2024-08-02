@@ -1,0 +1,16 @@
+name: Long workflow
+on: push
+jobs:
+    first-job-name:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Avoir le code du repertoire
+              uses: actions/checkout@v3
+            - name: Installer node js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Installer les dépendences
+              run: npm ci
+            - name : Run tests
+              run: npm test
